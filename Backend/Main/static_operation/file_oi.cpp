@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../HeaderFile/all_header.h"
+#include "../../HeaderFile/all_header.h"
 using namespace std;
 
 bool readFileToWordArray(const string &filePath, string *wordArray, int maxWords, int &wordCount);

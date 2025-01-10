@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include "../../HeaderFile/all_header.h"
 using namespace std;
 
 bool regularize(string str[], int size){

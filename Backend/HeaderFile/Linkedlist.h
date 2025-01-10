@@ -39,7 +39,7 @@ public:
         ++ size;
     }
 
-    void removeAt(int index) {
+    void remove_at(int index) {
         if (index < 0 || index >= size) return;
 
         if (index == 0) {
@@ -57,6 +57,41 @@ public:
         }
         --size;
     }
+
+    void insert_at(int index, const T& value) {
+        if (index < 0 || index > size) return;
+
+        if (index == 0) {
+            head = new Node(value, head);
+        } else {
+            Node* current = head;
+            for (int i = 0; i < index - 1; ++i) {
+                current = current->next;
+            }
+            current->next = new Node(value, current->next);
+        }
+        ++size;
+    }
+
+
+    void set(int index, const T& value) {
+        if (index < 0 || index >= size) throw "Index out of bounds";
+        Node* current = head;
+        for (int i = 0; i < index; ++i) {
+            current = current->next;
+        }
+        current->value = value;
+    }
+
+    bool contains(const T& value) const {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->value == value) return true;
+            current = current->next;
+        }
+        return false;
+    }
+
 
     T get(int index) const {
         if (index < 0 || index >= size) throw "Index out of bounds";
