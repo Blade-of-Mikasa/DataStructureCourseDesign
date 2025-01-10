@@ -2,9 +2,9 @@
 #include<string>
 using namespace std;
 
-bool regularize(string str[]){
+bool regularize(string str[], int size){
     string buf;
-    for(int i = 0; !str[i].empty() ; i++){
+    for(int i = 0; i < size ; i++){
         // 全是数字要特判
         bool all_num = true;
         for(int j = 0; j < str[i].length(); j++){
@@ -24,6 +24,8 @@ bool regularize(string str[]){
                 if(buf.empty())    continue;
                 else    buf += str[i][j];
             }
+            else if(j > 1 && buf.back() == '-')
+                buf.pop_back();
             else    continue;
         }
         // if(all_num)

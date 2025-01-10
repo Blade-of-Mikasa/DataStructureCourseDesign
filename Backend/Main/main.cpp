@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 #include "../HeaderFile/all_header.h"
-#include "deal_str_to_word.cpp"
+#include "deal_str.cpp"
 #include "file_oi.cpp"
 #include "regularization.cpp"
 using namespace std;
@@ -15,44 +15,25 @@ int main() {
     bool readSuccess = readFileToWordArray(filePath, str, maxWords, wordCount);
     if (readSuccess) 
     {
-        std::cout << "文件中的单词数量: " << wordCount << std::endl;
-        std::cout << "文件中的数字: " << std::endl;
+        cout << "成功读取文件: " << filePath << endl;
+        cout<<"单词数量:"<<wordCount<<endl;
     }
 
-    regularize(str);
+    regularize(str, wordCount);
 
-    int size = unique_by_traverse(str, warr);
+    int size = unique_by_traverse(str, warr, wordCount);
+    cout<<"不同单词数量:"<<size<<endl;
 
-    // for(int i = 0; i < 10; i ++)
-    //     cout << warr[i].str << " " << warr[i].freq << endl;
 
     cout<<"排序后:"<<endl;
     QuickSort(warr, 0, size - 1);
 
-    // for(int i = 0; i < 10; i ++)
-    //     cout << warr[i].str << " " << warr[i].freq << endl;
 
-
-    // Windows 路径 P
-    const std::string path = "D:\\CDODS\\OutFile.txt";
-    std::ofstream file(path);
-
-    // 检查文件是否成功打开
-    if (!file.is_open()) {
-        std::cerr << "无法打开文件: " << path << std::endl;
-        return 1;
+    //输出到文件
+    const string OutPath = "D:\\CDODS\\OutFile.txt";
+    bool writeSuccess = writeToFile(OutPath, warr, size);
+    if (writeSuccess) {
+        cout << "成功将 Myword 输出到文件: " << "D:\\CDODS\\OutFile.txt" << endl;
     }
-
-    // 使用 << 将 Myword 写入文件
-    for(int i = 0; i < size; i ++)
-        file << warr[i] << endl;
-        // file << warr[i].str << " " << warr[i].freq << std::endl;
-        // file << "Hello, World!" << std::endl;
-
-    // 关闭文件流
-    file.close();
-
-    std::cout << "成功将 Myword 输出到文件: " << path << std::endl;
-
     return 0;
 }

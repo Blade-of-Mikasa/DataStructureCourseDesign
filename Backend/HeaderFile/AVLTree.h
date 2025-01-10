@@ -119,4 +119,18 @@ public:
         inOrderTraversal(root);
         std::cout << std::endl;
     }
+
+    bool find(const T& value) const {
+        Node* current = root;
+        while (current) {
+            if (value == current->value) {
+                return true;
+            } else if (value < current->value) {
+                current = current->left;
+            } else {
+                current = current->right;
+            }
+        }
+        return false;
+    }
 };

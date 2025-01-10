@@ -4,12 +4,14 @@
 using namespace std;
 
 
-int unique_by_traverse(string str[], Myword w[])
+int unique_by_traverse(string str[], Myword w[], int size)
 {
     //将str中的所有单词存入w中, 去重并且统计频率
     int n = 0;
-    for(int i = 0; !str[i].empty(); i++)
+    for(int i = 0; i < size; i++)
     {
+        if(str[i].empty())
+            continue;
         bool flag = false;
         for(int j = 0; j < n; j++)
         {
