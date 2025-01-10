@@ -1,4 +1,5 @@
 
+#pragma once
 #include <bits/stdc++.h>
 // 顺序表模板类实现
 template <typename T>

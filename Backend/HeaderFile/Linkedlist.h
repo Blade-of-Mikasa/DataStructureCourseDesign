@@ -1,3 +1,4 @@
+#pragma once
 #include<bits/stdc++.h>
 // 链表模板类实现
 template <typename T>

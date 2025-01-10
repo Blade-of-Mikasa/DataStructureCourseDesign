@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 // 二叉平衡树模板类实现（AVL树）
 template <typename T>
