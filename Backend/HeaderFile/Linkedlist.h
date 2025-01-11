@@ -91,7 +91,7 @@ public:
         while (current != nullptr) {
             cnt++;
             if (current->value == value) 
-                return {value, cnt, 0, 1};
+                return {current->value, cnt, 0, 1};
             current = current->next;
         }
         return (SearchRes){value, cnt, 0, 0};
