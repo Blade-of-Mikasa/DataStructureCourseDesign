@@ -1,16 +1,17 @@
 #pragma once
 #include<bits/stdc++.h>
 #include "Myword.h"
-using namespace std;
+using namespace std;    
+/*
+    visit_by_index: 0: 按索引访问, 1: 按值访问
+    success_search: 0: 搜索失败, 1: 搜索成功
+    index: 搜索结果的索引, 如果visit_by_index为0, 则为索引, 如果visit_by_index为1, 则为值
+    search_len: 搜索长度
+    word: 搜索结果的单词, 如果visit_by_index为1, 则为单词
+*/
 class SearchRes {
 public:
-    /*
-        visit_by_index: 0: 按索引访问, 1: 按值访问
-        success_search: 0: 搜索失败, 1: 搜索成功
-        index: 搜索结果的索引, 如果visit_by_index为0, 则为索引, 如果visit_by_index为1, 则为值
-        search_len: 搜索长度
-        word: 搜索结果的单词, 如果visit_by_index为1, 则为单词
-    */
+
     bool visit_by_index, success_search;
     int index, search_len;
     Myword word;

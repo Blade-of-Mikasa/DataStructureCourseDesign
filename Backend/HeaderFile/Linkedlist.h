@@ -1,5 +1,6 @@
 #pragma once
 #include<bits/stdc++.h>
+#include "search_res.h"
 // 链表模板类实现
 template <typename T>
 class LinkedList {
@@ -46,7 +47,8 @@ public:
             Node* temp = head;
             head = head->next;
             delete temp;
-        } else {
+        } 
+        else {
             Node* current = head;
             for (int i = 0; i < index - 1; ++i) {
                 current = current->next;
@@ -83,13 +85,16 @@ public:
         current->value = value;
     }
 
-    bool contains(const T& value) const {
+    SearchRes search_in_linked_list(const T& value) const {
+        int cnt = 0;
         Node* current = head;
         while (current != nullptr) {
-            if (current->value == value) return true;
+            cnt++;
+            if (current->value == value) 
+                return {value, cnt, 0, 1};
             current = current->next;
         }
-        return false;
+        return (SearchRes){value, cnt, 0, 0};
     }
 
 

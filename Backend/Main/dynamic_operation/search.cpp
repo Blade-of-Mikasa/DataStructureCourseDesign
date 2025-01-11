@@ -42,4 +42,3 @@ SearchRes binary_search(SequenceList<T> &str, int size, T target) {
     }
     return {-1, sl, 1, 0}; // 如果目标字符串不存在于数组中，返回-1
 }
-
