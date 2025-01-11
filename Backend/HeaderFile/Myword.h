@@ -21,13 +21,13 @@ public:
     bool operator<=(const Myword& w) const{
         if(str == w.str)
             return freq >= w.freq;
-        return str < w.str;
+        return str <= w.str;
     }
 
     bool operator>=(const Myword& w) const{
         if(str == w.str)
             return freq >= w.freq; 
-        return str > w.str;
+        return str >= w.str;
     }
 
     bool operator==(const Myword& w) const{
@@ -37,9 +37,15 @@ public:
         return str != w.str;
     }
 
+    //类型转换string
+    operator std::string() const {
+        return str;
+    }
+    
     // 重载输出运算符
     friend std::ostream& operator<<(std::ostream& os, const Myword& w) {
-        os << w.str << "    " << w.freq;
+        // os <<"单词: "<< w.str << " 词频: " << w.freq;
+        os << w.str << " " << w.freq;
         return os;
     }
 };
